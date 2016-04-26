@@ -10,6 +10,7 @@
 <head>
     <title>Музыкальная библиотека</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="../css/css.css" rel="stylesheet">
 </head>
 <body>
 <% request.setCharacterEncoding("UTF-8");%>

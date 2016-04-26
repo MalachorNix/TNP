@@ -5,6 +5,7 @@
 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Музыкальная библиотека</title>
+    <link href="../css/css.css" rel="stylesheet">
 
   </head>
 

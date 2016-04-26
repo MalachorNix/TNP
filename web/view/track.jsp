@@ -9,6 +9,7 @@
 <html>
 <head>
     <title>Музыкальная библиотека</title>
+    <link href="../css/css.css" rel="stylesheet">
 </head>
 <body>
 <% request.setCharacterEncoding("UTF-8");%>
