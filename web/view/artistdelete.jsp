@@ -9,6 +9,7 @@
     <title>Музыкальная библиотека</title>
 </head>
 <body>
+<% request.setCharacterEncoding("UTF-8");%>
 <%
     if (request.getParameter("artist_id") != null && request.getParameter("artist_name") != null) {
         int id = new Integer(request.getParameter("artist_id"));

@@ -9,6 +9,7 @@
     <title>Музыкальная библиотека</title>
 </head>
 <body>
+<% request.setCharacterEncoding("UTF-8");%>
 <form name="inputForm" action="trackUp.jsp">
     <table align="center" border="0" bgcolor="white" style="opacity:0.6">
         <tr>
@@ -55,8 +56,6 @@
         GenreDao genreDao = null;
         ArtistDao artistDao = null;
         TrackItem trackItem = null;
-        ArtistItem artistItem = null;
-        GenreItem genreItem = null;
         Connection con = daoFactory.getConnection();
 
         trackDao = daoFactory.getTrackDao(con);

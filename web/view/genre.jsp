@@ -12,6 +12,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 <body>
+<% request.setCharacterEncoding("UTF-8");%>
 <table align="center" border="0" bgcolor="white" width="100%" style="opacity:0.6">
     <tr>
         <td align="center" colspan="2"><h1>Приветствуем Вас<br>на музыкальной библиотеке!</h1> </td>

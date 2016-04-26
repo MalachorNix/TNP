@@ -9,6 +9,7 @@
     <title>Музыкальная библиотека</title>
 </head>
 <body>
+<% request.setCharacterEncoding("UTF-8");%>
 <form name="inputForm" action="genreIn.jsp">
     <table class="cl2" align="center" border="1" bgcolor="white">
 
