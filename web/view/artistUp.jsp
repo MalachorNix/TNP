@@ -20,7 +20,7 @@
 
                     <tr>
                         <td>
-                            <input type="text" disabled name="artist_id" value="<%=request.getParameter("artist_id")%>"/>
+                            <input type="text" name="artist_id" value="<%=request.getParameter("artist_id")%>"/>
                         </td>
                     </tr>
 
