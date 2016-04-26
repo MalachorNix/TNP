@@ -45,8 +45,11 @@ public class MySqlArtistDao implements ArtistDao {
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setString(1, name);
         ResultSet resultSet = statement.executeQuery();
-        resultSet.next();
-        ArtistItem artistItem = new ArtistItem(resultSet.getInt("artist_id"), resultSet.getString("artist_name"));
+        ArtistItem artistItem = null;
+        if (resultSet.next()) {
+            artistItem = new ArtistItem(resultSet.getInt("artist_id"), resultSet.getString("artist_name"));
+            return artistItem;
+        }
         return artistItem;
     }
 

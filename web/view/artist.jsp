@@ -10,6 +10,7 @@
 <head>
     <title>Музыкальная библиотека</title>
     <link href="../css/css.css" rel="stylesheet">
+    <script src="js/common.js" defer></script>
 </head>
 <body>
 <% request.setCharacterEncoding("UTF-8");%>
@@ -28,7 +29,8 @@
             <a href="genre.jsp">Показать жанры</a><br><br><br>
             <a href="track.jsp">Показать треки</a><br><br><br>
         <td colspan="2"><p>
-            <form method="get" action="artist.jsp" style="vertical-align:top">
+            <form name="frm" method="get" action="artist.jsp" style="vertical-align:top"
+                  onsubmit="return validateForm()">
                 <input type="text" name="name" value=""/>
                 <input type="submit" value="Поиск" name="search"/>
             </form>
@@ -53,12 +55,19 @@
                 %>
 
                 <%
-                    } else {
-                        String artist_name;
-                        artist_name = request.getParameter("name");
-                        artist_name.trim();
-                        list.add(dao.readByName(artist_name));
+                } else {
+                    String artist_name;
+                    artist_name = request.getParameter("name");
+                    artist_name.trim();
+                    ArtistItem artist = dao.readByName(artist_name);
+                    if (artist == null) { %>
+                <script>
+                    genreNotFound();
+                </script>
+                <% } else {
+                    list.add(artist);
                     }
+                }
                 %>
 
                 <%

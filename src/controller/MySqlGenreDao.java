@@ -42,8 +42,11 @@ public class MySqlGenreDao implements GenreDao {
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setString(1, genre_name);
         ResultSet resultSet = statement.executeQuery();
-        resultSet.next();
-        GenreItem genreItem = new GenreItem(resultSet.getInt("genre_id"), resultSet.getString("genre_name"));
+        GenreItem genreItem = null;
+        if (resultSet.next()) {
+            genreItem = new GenreItem(resultSet.getInt("genre_id"), resultSet.getString("genre_name"));
+            return genreItem;
+        }
         return genreItem;
     }
 

@@ -10,6 +10,7 @@
 <head>
     <title>Музыкальная библиотека</title>
     <link href="../css/css.css" rel="stylesheet">
+    <script src="js/common.js"></script>
 </head>
 <body>
 <% request.setCharacterEncoding("UTF-8");%>
@@ -28,7 +29,7 @@
             <a href="artist.jsp">Показать артистов</a><br><br><br>
             <a href="genre.jsp">Показать жанры</a><br><br><br>
         <td colspan="2"><p>
-            <form method="get" action="track.jsp" style="vertical-align:top">
+            <form name="frm" method="get" action="track.jsp" style="vertical-align:top" onsubmit="return validateForm()">
                 <input type="text" name="name" value=""/>
                 <input type="submit" value="Поиск" name="search"/>
             </form>
@@ -63,7 +64,6 @@
                 <tr>
                     <td><b><%= trackItem.getName()%>
                     </b></td>
-                    <%--имя артиста--%>
                     <%
                         artistItem = artistDao.read(trackItem.getTrack_artist());
                     %>
@@ -87,13 +87,17 @@
                     String name;
                     name = request.getParameter("name");
                     list = trackDao.readByName(name);
+                    if (list.size() == 0) { %>
+                <script>
+                    trackNotFound();
+                </script>
+                    <%}
                     for (int i = 0; i < list.size(); i++) {
                         trackItem = list.get(i);
                 %>
                 <tr>
                     <td><b><%= trackItem.getName()%>
                     </b></td>
-                    <%--имя артиста--%>
                     <%
                         artistItem = artistDao.read(trackItem.getTrack_artist());
                     %>
