@@ -30,7 +30,7 @@
             <a href="track.jsp">Показать треки</a><br><br><br>
         <td colspan="2"><p>
             <form name="frm" method="get" action="artist.jsp" style="vertical-align:top"
-                  onsubmit="return validateForm()">
+                  onsubmit="return validateSearchForm()">
                 <input type="text" name="name" value=""/>
                 <input type="submit" value="Поиск" name="search"/>
             </form>

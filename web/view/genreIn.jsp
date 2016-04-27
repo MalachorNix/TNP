@@ -3,30 +3,25 @@
 <%@ page import="controller.MySqlDaoFactory" %>
 <%@ page import="java.sql.Connection" %>
 <%@ page import="controller.GenreDao" %>
+<%@ page import="java.sql.SQLException" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Музыкальная библиотека</title>
     <link href="../css/css.css" rel="stylesheet">
+    <script src="js/common.js" defer></script>
 </head>
 <body>
 <% request.setCharacterEncoding("UTF-8");%>
-<form name="inputForm" action="genreIn.jsp">
+<form id="form" name="inputForm" action="genreIn.jsp" onsubmit="validateEmpty()">
     <table class="cl2" align="center" border="1" bgcolor="white">
 
-        <% if (request.getParameter("genre_name")
-                == null && request.getParameter("genre_id")
-                == null) {%>
+        <% if (request.getParameter("genre_name") == null) {%>
         <h1 align="center">Форма добавления нового жанра</h1>
-
-        <tr>
-            <td>Введите id:</td>
-            <td><input type="text" name="genre_id" value=""/></td>
-        </tr>
         <tr>
             <td>Введите название:
             </td>
-            <td><input type="text" name="genre_name" value=""/>
+            <td><input id="inputField" type="text" name="genre_name" value=""/>
             </td>
         </tr>
         <td>
@@ -35,17 +30,24 @@
     </table>
 </form>
 <% } else { %>
-<%! String name;
-    int id;%>
+<%! String name;%>
 <%
     name = request.getParameter("genre_name");
-    id = new Integer(request.getParameter("genre_id"));
-    GenreItem genre = new GenreItem(id, name);
-    DaoFactory daoFactory = new MySqlDaoFactory();
-    Connection con = daoFactory.getConnection();
+    if (name.length() != 0) {
+        DaoFactory daoFactory = new MySqlDaoFactory();
+        Connection con = daoFactory.getConnection();
 
-    GenreDao dao = daoFactory.getGenreDao(con);
-    dao.create(request.getParameter("genre_name"));
+        GenreDao dao = daoFactory.getGenreDao(con);
+        try {
+            dao.create(name);
+        } catch (SQLException e) {
+            %>
+<script>
+    alert('Данный жанр уже существует.');
+</script>
+<%
+        }
+    }
     if (true) {
 %>
 <jsp:forward page="genre.jsp"></jsp:forward>

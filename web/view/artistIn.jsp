@@ -8,25 +8,20 @@
 <head>
     <title>Музыкальная библиотека</title>
     <link href="../css/css.css" rel="stylesheet">
+    <script src="js/common.js" defer></script>
 </head>
 <body>
 <% request.setCharacterEncoding("UTF-8");%>
-<form name="inputForm" action="artistIn.jsp">
+<form name="inputForm" action="artistIn.jsp" onsubmit="validateEmpty()">
     <table class="cl2" align="center" border="1" bgcolor="white">
 
-        <% if (request.getParameter("artist_name")
-                == null && request.getParameter("artist_id")
-                == null) {%>
+        <% if (request.getParameter("artist_name") == null) {%>
         <h1 align="center">Форма добавления нового артиста</h1>
 
         <tr>
-            <td>Введите id:</td>
-            <td><input type="text" name="artist_id" value=""/></td>
-        </tr>
-        <tr>
             <td>Введите имя:
             </td>
-            <td><input type="text" name="artist_name" value=""/>
+            <td><input id="inputField" type="text" name="artist_name" value=""/>
             </td>
         </tr>
         <td>
@@ -39,13 +34,13 @@
     int id;%>
 <%
     name = request.getParameter("artist_name");
-    id = new Integer(request.getParameter("artist_id"));
-    ArtistItem artist = new ArtistItem(id, name);
-    DaoFactory daoFactory = new MySqlDaoFactory();
-    Connection con = daoFactory.getConnection();
+    if (name.length() != 0) {
+        DaoFactory daoFactory = new MySqlDaoFactory();
+        Connection con = daoFactory.getConnection();
 
-    ArtistDao dao = daoFactory.getArtistDao(con);
-    dao.create(request.getParameter("artist_name"));
+        ArtistDao dao = daoFactory.getArtistDao(con);
+        dao.create(request.getParameter(name));
+    }
     if (true) {
 %>
 <jsp:forward page="artist.jsp"></jsp:forward>

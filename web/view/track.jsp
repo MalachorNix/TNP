@@ -29,7 +29,7 @@
             <a href="artist.jsp">Показать артистов</a><br><br><br>
             <a href="genre.jsp">Показать жанры</a><br><br><br>
         <td colspan="2"><p>
-            <form name="frm" method="get" action="track.jsp" style="vertical-align:top" onsubmit="return validateForm()">
+            <form name="frm" method="get" action="track.jsp" style="vertical-align:top" onsubmit="return validateSearchForm()">
                 <input type="text" name="name" value=""/>
                 <input type="submit" value="Поиск" name="search"/>
             </form>

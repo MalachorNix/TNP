@@ -24,6 +24,12 @@ public class TrackItem extends MusicItem {
         this.track_artist = artist;
     }
 
+    public TrackItem(String name, int genre, int artist) {
+        super(name);
+        this.track_genre = genre;
+        this.track_artist = artist;
+    }
+
     @Override
     public String toString() {
         return "TrackItem{" +

@@ -1,1 +1,1 @@
-SELECT * FROM library.genre
+SELECT * FROM library.artist
