@@ -5,12 +5,17 @@
 <%@ page import="controller.*" %>
 <%@ page import="model.ArtistItem" %>
 <%@ page import="model.GenreItem" %>
+<%@ page import="controller.interfaceDaoItem.ArtistDao" %>
+<%@ page import="controller.interfaceDaoFactory.DaoFactory" %>
+<%@ page import="controller.interfaceDaoItem.GenreDao" %>
+<%@ page import="controller.interfaceDaoItem.TrackDao" %>
+<%@ page import="controller.impelementationDaoFactory.MySqlDaoFactory" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Музыкальная библиотека</title>
-    <link href="../css/css.css" rel="stylesheet">
-    <script src="js/common.js"></script>
+    <link href="../../css/css.css" rel="stylesheet">
+    <script src="../js/common.js"></script>
 </head>
 <body>
 <% request.setCharacterEncoding("UTF-8");%>
@@ -25,9 +30,9 @@
     <tr>
         <td align="left" style="padding: 20px;">
             <a href="trackIn.jsp">Добавить новый трек</a><br><br><br>
-            <a href="index.jsp">На главную</a><br><br><br>
-            <a href="artist.jsp">Показать артистов</a><br><br><br>
-            <a href="genre.jsp">Показать жанры</a><br><br><br>
+            <a href="../index.jsp">На главную</a><br><br><br>
+            <a href="../artist/artist.jsp">Показать артистов</a><br><br><br>
+            <a href="../genre/genre.jsp">Показать жанры</a><br><br><br>
         <td colspan="2"><p>
             <form name="frm" method="get" action="track.jsp" style="vertical-align:top" onsubmit="return validateSearchForm()">
                 <input type="text" name="name" value=""/>

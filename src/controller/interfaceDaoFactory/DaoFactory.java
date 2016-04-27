@@ -1,4 +1,8 @@
-package controller;
+package controller.interfaceDaoFactory;
+
+import controller.interfaceDaoItem.ArtistDao;
+import controller.interfaceDaoItem.GenreDao;
+import controller.interfaceDaoItem.TrackDao;
 
 import java.sql.Connection;
 import java.sql.SQLException;

@@ -4,12 +4,17 @@
 <%@ page import="model.ArtistItem" %>
 <%@ page import="model.GenreItem" %>
 <%@ page import="java.sql.SQLException" %>
+<%@ page import="controller.interfaceDaoItem.ArtistDao" %>
+<%@ page import="controller.interfaceDaoFactory.DaoFactory" %>
+<%@ page import="controller.interfaceDaoItem.GenreDao" %>
+<%@ page import="controller.interfaceDaoItem.TrackDao" %>
+<%@ page import="controller.impelementationDaoFactory.MySqlDaoFactory" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Музыкальная библиотека</title>
-    <link href="../css/css.css" rel="stylesheet">
-    <script src="js/common.js" defer></script>
+    <link href="../../css/css.css" rel="stylesheet">
+    <script src="../js/common.js" defer></script>
 </head>
 <body>
 <% request.setCharacterEncoding("UTF-8");%>

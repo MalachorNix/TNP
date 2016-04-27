@@ -1,4 +1,4 @@
-package controller;
+package controller.interfaceDaoItem;
 
 import model.TrackItem;
 
@@ -18,7 +18,6 @@ public interface TrackDao {
     public List<TrackItem> readByName(String name) throws SQLException;
 
     public List<TrackItem> readByArtistInGenre(int artist_id, int genre_id) throws SQLException;
-
 
     public void update(TrackItem trackItem);
 

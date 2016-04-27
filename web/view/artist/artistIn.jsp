@@ -1,14 +1,14 @@
-<%@ page import="controller.ArtistDao" %>
+<%@ page import="controller.interfaceDaoItem.ArtistDao" %>
 <%@ page import="java.sql.Connection" %>
-<%@ page import="controller.MySqlDaoFactory" %>
-<%@ page import="controller.DaoFactory" %>
+<%@ page import="controller.impelementationDaoFactory.MySqlDaoFactory" %>
+<%@ page import="controller.interfaceDaoFactory.DaoFactory" %>
 <%@ page import="model.ArtistItem" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Музыкальная библиотека</title>
-    <link href="../css/css.css" rel="stylesheet">
-    <script src="js/common.js" defer></script>
+    <link href="../../css/css.css" rel="stylesheet">
+    <script src="../js/common.js" defer></script>
 </head>
 <body>
 <% request.setCharacterEncoding("UTF-8");%>

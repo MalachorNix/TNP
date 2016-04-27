@@ -1,5 +1,6 @@
-package controller;
+package controller.implementationDaoItem;
 
+import controller.interfaceDaoItem.ArtistDao;
 import model.ArtistItem;
 
 import java.sql.Connection;

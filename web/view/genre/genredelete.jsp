@@ -1,13 +1,13 @@
-<%@ page import="controller.DaoFactory" %>
-<%@ page import="controller.MySqlDaoFactory" %>
-<%@ page import="controller.GenreDao" %>
+<%@ page import="controller.interfaceDaoFactory.DaoFactory" %>
+<%@ page import="controller.impelementationDaoFactory.MySqlDaoFactory" %>
+<%@ page import="controller.interfaceDaoItem.GenreDao" %>
 <%@ page import="java.sql.Connection" %>
 <%@ page import="model.GenreItem" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Музыкальная библиотека</title>
-    <link href="../css/css.css" rel="stylesheet">
+    <link href="../../css/css.css" rel="stylesheet">
 </head>
 <body>
 <% request.setCharacterEncoding("UTF-8");%>

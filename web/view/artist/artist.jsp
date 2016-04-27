@@ -1,16 +1,16 @@
-<%@ page import="controller.DaoFactory" %>
-<%@ page import="controller.MySqlDaoFactory" %>
+<%@ page import="controller.interfaceDaoFactory.DaoFactory" %>
+<%@ page import="controller.impelementationDaoFactory.MySqlDaoFactory" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="model.ArtistItem" %>
 <%@ page import="java.util.List" %>
-<%@ page import="controller.ArtistDao" %>
+<%@ page import="controller.interfaceDaoItem.ArtistDao" %>
 <%@ page import="java.sql.Connection" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Музыкальная библиотека</title>
-    <link href="../css/css.css" rel="stylesheet">
-    <script src="js/common.js" defer></script>
+    <link href="../../css/css.css" rel="stylesheet">
+    <script src="../js/common.js" defer></script>
 </head>
 <body>
 <% request.setCharacterEncoding("UTF-8");%>
@@ -25,9 +25,9 @@
     <tr>
         <td align="left" style="padding: 20px;">
             <a href="artistIn.jsp">Добавить нового артиста</a><br><br><br>
-            <a href="index.jsp">На главную</a><br><br><br>
-            <a href="genre.jsp">Показать жанры</a><br><br><br>
-            <a href="track.jsp">Показать треки</a><br><br><br>
+            <a href="../index.jsp">На главную</a><br><br><br>
+            <a href="../genre/genre.jsp">Показать жанры</a><br><br><br>
+            <a href="../track/track.jsp">Показать треки</a><br><br><br>
         <td colspan="2"><p>
             <form name="frm" method="get" action="artist.jsp" style="vertical-align:top"
                   onsubmit="return validateSearchForm()">

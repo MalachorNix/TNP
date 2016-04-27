@@ -1,0 +1,61 @@
+body{
+	background-image: url(../pictures/sun.jpg);
+	background-repeat:no-repeat;
+	background-size:100%;
+}
+h1{
+	font-size:28px;
+
+	font: 24pt calibri;
+}
+
+td {
+	list-style: none;
+	text-align: left;
+	padding: 0 !important;
+}
+
+table{
+	width: 1200px;
+	height: 500px;
+	text-align:center;}
+
+.cl1{vertical-align:bottom;display: none;}
+.cl2{width: 700px;
+	height: 100px;}
+
+img {
+	display: none;
+}
+
+tbody tr:nth-child(1) td {
+	text-align: center;
+}
+
+tbody tr:nth-child(n+1) td a {
+	display: inline-block;
+	padding: 6px 10px;
+	margin-left: 174px;
+	font-weight: bold;
+	text-decoration: none;
+	cursor: pointer;
+	text-align: center;
+	width: 200px;
+	color: #790000;
+	font-size: 20px;
+	border: 3px solid white;
+}
+
+table {
+	width: 80%;
+}
+
+tbody {
+	border: 2px solid #F44336;
+}
+
+tbody tr:nth-child(n+1) td a:hover {
+	border: 3px solid rgba(105, 31, 24, 0.21);
+	border-radius: 7px;
+	background-color: rgba(80, 21, 21, 0.26);
+}

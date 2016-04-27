@@ -1,5 +1,8 @@
-package controller;
+package controller.implementationDaoItem;
 
+import controller.impelementationDaoFactory.MySqlDaoFactory;
+import controller.interfaceDaoFactory.DaoFactory;
+import controller.interfaceDaoItem.GenreDao;
 import model.GenreItem;
 
 import java.sql.Connection;

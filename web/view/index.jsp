@@ -19,9 +19,9 @@
         </tr>
         <tr>
           <td align="center" style="padding: 20px;">
-            <a href="track.jsp">Библиотека треков</a><br><br><br>
-            <a href="artist.jsp">Библиотека артистов</a><br><br><br>
-            <a href="genre.jsp">Библиотека жанров</a>
+            <a href="track/track.jsp">Библиотека треков</a><br><br><br>
+            <a href="artist/artist.jsp">Библиотека артистов</a><br><br><br>
+            <a href="genre/genre.jsp">Библиотека жанров</a>
           </td>
         </tr>
 
