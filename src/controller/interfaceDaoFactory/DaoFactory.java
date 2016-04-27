@@ -11,6 +11,8 @@ public interface DaoFactory {
 
     public Connection getConnection() throws SQLException;
 
+    public void closeConnection() throws SQLException;
+
     public GenreDao getGenreDao(Connection connection);
 
     public ArtistDao getArtistDao(Connection connection);

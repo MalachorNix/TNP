@@ -79,6 +79,7 @@
 
         trackDao = daoFactory.getTrackDao(con);
         trackDao.update(trackItem);
+        daoFactory.closeConnection();
     %>
     <jsp:forward page="track.jsp"></jsp:forward>
 </form>

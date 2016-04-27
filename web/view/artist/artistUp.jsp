@@ -50,6 +50,7 @@
 
         ArtistDao dao = daoFactory.getArtistDao(con);
         dao.update(artist);
+        daoFactory.closeConnection();
     %>
     <jsp:forward page="artist.jsp"></jsp:forward>
 </form>

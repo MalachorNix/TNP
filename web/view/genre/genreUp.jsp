@@ -50,6 +50,7 @@
 
         GenreDao dao = daoFactory.getGenreDao(con);
         dao.update(genre);
+        daoFactory.closeConnection();
     %>
     <jsp:forward page="genre.jsp"></jsp:forward>
 </form>

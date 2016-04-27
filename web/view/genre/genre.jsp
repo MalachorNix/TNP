@@ -17,10 +17,10 @@
 <% request.setCharacterEncoding("UTF-8");%>
 <table align="center" border="0" bgcolor="white" width="100%" style="opacity:0.6">
     <tr>
-        <td align="center" colspan="2"><h1>Приветствуем Вас<br>на музыкальной библиотеке!</h1> </td>
+        <td align="center" colspan="2"><h1>Приветствуем Вас<br>на музыкальной библиотеке!</h1></td>
     </tr>
     <tr>
-        <td align="center" colspan="2"><h2>Все жанры</h2> </td>
+        <td align="center" colspan="2"><h2>Все жанры</h2></td>
     </tr>
 
     <tr>
@@ -29,10 +29,12 @@
             <a href="../index.jsp">На главную</a><br><br><br>
             <a href="../artist/artist.jsp">Показать артистов</a><br><br><br>
             <a href="../track/track.jsp">Показать треки</a><br><br><br>
-        <td colspan="2"><p><form name="frm" method="get" action="genre.jsp" style="vertical-align:top" onsubmit="validateSearchForm()">
-            <input type="text" name="name" value="" />
-            <input type="submit" value="Поиск" name="search" />
-        </form><br>
+        <td colspan="2"><p>
+            <form name="frm" method="get" action="genre.jsp" style="vertical-align:top" onsubmit="validateSearchForm()">
+                <input type="text" name="name" value=""/>
+                <input type="submit" value="Поиск" name="search"/>
+            </form>
+            <br>
             <table border="1" style="height:300px; width:800px; padding: 10px;">
                 <tr>
                     <th>Название</th>
@@ -45,7 +47,7 @@
                     GenreItem genreItem = null;
                     try (Connection con = daoFactory.getConnection()) {
                         dao = daoFactory.getGenreDao(con);
-                    if (request.getParameter("search") == null || request.getParameter("search").trim().length() == 0) {%>
+                        if (request.getParameter("search") == null || request.getParameter("search").trim().length() == 0) {%>
 
                 <%
                     list = dao.getAll();
@@ -61,11 +63,11 @@
                 <script>
                     genreNotFound();
                 </script>
-                        <%
-                    } else {
-                        list.add(genre);
+                <%
+                        } else {
+                            list.add(genre);
+                        }
                     }
-                }
                 %>
 
                 <%
@@ -75,15 +77,19 @@
 
                 %>
                 <tr>
-                    <td><b><%= genreItem.getName()%></b></td>
+                    <td><b><%= genreItem.getName()%>
+                    </b></td>
 
-                    <td colspan="2"><form>
-                        <a href="genreUp.jsp?genre_id=<%= genreItem.getId()%>&genre_name=<%= genreItem.getName()%>">Изменить</a>
-                        <a href="genredelete.jsp?genre_id=<%= genreItem.getId()%>&genre_name=<%= genreItem.getName() %>">Удалить</a>
-                    </form></td>
+                    <td colspan="2">
+                        <form>
+                            <a href="genreUp.jsp?genre_id=<%= genreItem.getId()%>&genre_name=<%= genreItem.getName()%>">Изменить</a>
+                            <a href="genredelete.jsp?genre_id=<%= genreItem.getId()%>&genre_name=<%= genreItem.getName() %>">Удалить</a>
+                        </form>
+                    </td>
                 </tr>
-                <% } }
-                 catch (Exception e) {
+                <% }
+                daoFactory.closeConnection();
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
                 }

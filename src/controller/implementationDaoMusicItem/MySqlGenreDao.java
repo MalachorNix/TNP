@@ -1,4 +1,4 @@
-package controller.implementationDaoItem;
+package controller.implementationDaoMusicItem;
 
 import controller.impelementationDaoFactory.MySqlDaoFactory;
 import controller.interfaceDaoFactory.DaoFactory;
@@ -95,16 +95,5 @@ public class MySqlGenreDao implements GenreDao {
             list.add(genreItem);
         }
         return list;
-    }
-
-    public static void main(String[] args) throws SQLException {
-        DaoFactory daoFactory = new MySqlDaoFactory();
-        List<GenreItem> list;
-        try (Connection con = daoFactory.getConnection()) {
-            GenreDao dao = daoFactory.getGenreDao(con);
-            list = dao.getAll();
-            System.out.println();
-        }
-
     }
 }

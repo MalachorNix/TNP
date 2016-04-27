@@ -19,6 +19,7 @@
         Connection con = daoFactory.getConnection();
         dao = daoFactory.getArtistDao(con);
         dao.delete(new ArtistItem(id, request.getParameter("artist_name")));
+        daoFactory.closeConnection();
     }
 %>
 <jsp:forward page="artist.jsp"></jsp:forward>

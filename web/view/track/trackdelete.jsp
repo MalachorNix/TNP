@@ -19,6 +19,7 @@
         Connection con = daoFactory.getConnection();
         dao = daoFactory.getTrackDao(con);
         dao.delete(dao.read(id));
+        daoFactory.closeConnection();
     }
 %>
 <jsp:forward page="track.jsp"></jsp:forward>

@@ -19,6 +19,7 @@
         Connection con = daoFactory.getConnection();
         dao = daoFactory.getGenreDao(con);
         dao.delete(new GenreItem(id, request.getParameter("genre_name")));
+        daoFactory.closeConnection();
     }
 %>
 <jsp:forward page="genre.jsp"></jsp:forward>

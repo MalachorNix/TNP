@@ -1,8 +1,8 @@
 package controller.impelementationDaoFactory;
 
-import controller.implementationDaoItem.MySqlArtistDao;
-import controller.implementationDaoItem.MySqlGenreDao;
-import controller.implementationDaoItem.MySqlTrackDao;
+import controller.implementationDaoMusicItem.MySqlArtistDao;
+import controller.implementationDaoMusicItem.MySqlGenreDao;
+import controller.implementationDaoMusicItem.MySqlTrackDao;
 import controller.interfaceDaoItem.ArtistDao;
 import controller.interfaceDaoFactory.DaoFactory;
 import controller.interfaceDaoItem.GenreDao;
@@ -34,6 +34,13 @@ public class MySqlDaoFactory implements DaoFactory {
     public Connection getConnection() throws SQLException {
         connection = dataSource.getConnection();
         return connection;
+    }
+
+    @Override
+    public void closeConnection() throws SQLException {
+        if (connection != null) {
+            connection.close();
+        }
     }
 
     @Override

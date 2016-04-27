@@ -124,6 +124,7 @@
                 <% }
 
                 }
+                    daoFactory.closeConnection();
                 %>
 
             </table>

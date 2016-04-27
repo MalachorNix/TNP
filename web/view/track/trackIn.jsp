@@ -73,6 +73,7 @@
         artist_id = artistDao.readByName(artist_name).getId();
         try {
             trackDao.create(name, genre_id, artist_id);
+            daoFactory.closeConnection();
         } catch (SQLException e) {
             %>
 <script>

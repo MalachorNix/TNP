@@ -1,4 +1,4 @@
-package controller.implementationDaoItem;
+package controller.implementationDaoMusicItem;
 
 import controller.interfaceDaoItem.ArtistDao;
 import model.ArtistItem;

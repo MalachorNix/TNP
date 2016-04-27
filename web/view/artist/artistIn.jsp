@@ -40,6 +40,7 @@
 
         ArtistDao dao = daoFactory.getArtistDao(con);
         dao.create(request.getParameter(name));
+        daoFactory.closeConnection();
     }
     if (true) {
 %>
