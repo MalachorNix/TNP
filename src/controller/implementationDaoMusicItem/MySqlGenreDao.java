@@ -1,7 +1,5 @@
 package controller.implementationDaoMusicItem;
 
-import controller.impelementationDaoFactory.MySqlDaoFactory;
-import controller.interfaceDaoFactory.DaoFactory;
 import controller.interfaceDaoItem.GenreDao;
 import model.GenreItem;
 
@@ -35,8 +33,7 @@ public class MySqlGenreDao implements GenreDao {
         statement.setInt(1, id);
         ResultSet resultSet = statement.executeQuery();
         resultSet.next();
-        GenreItem genreItem = new GenreItem(resultSet.getInt("genre_id"), resultSet.getString("genre_name"));
-        return genreItem;
+        return new GenreItem(resultSet.getInt("genre_id"), resultSet.getString("genre_name"));
     }
 
     @Override
@@ -89,7 +86,7 @@ public class MySqlGenreDao implements GenreDao {
         String sql = "SELECT * FROM library.genre;";
         PreparedStatement statement = connection.prepareStatement(sql);
         ResultSet resultSet = statement.executeQuery();
-        List<GenreItem> list = new ArrayList<GenreItem>();
+        List<GenreItem> list = new ArrayList<>();
         while (resultSet.next()) {
             GenreItem genreItem = new GenreItem(resultSet.getInt("genre_id"), resultSet.getString("genre_name"));
             list.add(genreItem);

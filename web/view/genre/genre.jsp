@@ -88,7 +88,7 @@
                     </td>
                 </tr>
                 <% }
-                daoFactory.closeConnection();
+                    daoFactory.closeConnection();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

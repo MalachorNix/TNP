@@ -45,5 +45,9 @@ function validateTrackInForm() {
 }
 
 function duplicateGenre() {
-    alert('Данный жанр уже существует.');
+    alert('Данный жанр уже существует в базе данных.');
+}
+
+function duplicateArtist() {
+    alert('Этот исполнитель уже существует в базе данных.');
 }

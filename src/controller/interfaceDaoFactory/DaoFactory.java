@@ -9,13 +9,13 @@ import java.sql.SQLException;
 
 public interface DaoFactory {
 
-    public Connection getConnection() throws SQLException;
+    Connection getConnection() throws SQLException;
 
-    public void closeConnection() throws SQLException;
+    void closeConnection() throws SQLException;
 
-    public GenreDao getGenreDao(Connection connection);
+    GenreDao getGenreDao(Connection connection);
 
-    public ArtistDao getArtistDao(Connection connection);
+    ArtistDao getArtistDao(Connection connection);
 
-    public TrackDao getTrackDao(Connection connection);
+    TrackDao getTrackDao(Connection connection);
 }

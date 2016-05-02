@@ -2,7 +2,7 @@
 <%@ page import="java.sql.Connection" %>
 <%@ page import="controller.impelementationDaoFactory.MySqlDaoFactory" %>
 <%@ page import="controller.interfaceDaoFactory.DaoFactory" %>
-<%@ page import="model.ArtistItem" %>
+<%@ page import="java.sql.SQLException" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -19,10 +19,8 @@
         <h1 align="center">Форма добавления нового артиста</h1>
 
         <tr>
-            <td>Введите имя:
-            </td>
-            <td><input id="inputField" type="text" name="artist_name" value=""/>
-            </td>
+            <td>Введите имя:</td>
+            <td><input id="inputField" type="text" name="artist_name" value=""/></td>
         </tr>
         <td>
             <input type="submit" value="ok" name="ok"/>
@@ -30,8 +28,7 @@
     </table>
 </form>
 <% } else { %>
-<%! String name;
-    int id;%>
+<%! String name;%>
 <%
     name = request.getParameter("artist_name");
     if (name.length() != 0) {
@@ -39,8 +36,12 @@
         Connection con = daoFactory.getConnection();
 
         ArtistDao dao = daoFactory.getArtistDao(con);
-        dao.create(request.getParameter(name));
-        daoFactory.closeConnection();
+        try {
+            dao.create(name);
+        } catch (SQLException e) {
+        } finally {
+            daoFactory.closeConnection();
+        }
     }
     if (true) {
 %>

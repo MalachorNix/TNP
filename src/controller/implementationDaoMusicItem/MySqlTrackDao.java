@@ -145,7 +145,7 @@ public class MySqlTrackDao implements TrackDao {
         String sql = "SELECT * FROM library.track;";
         PreparedStatement statement = connection.prepareStatement(sql);
         ResultSet resultSet = statement.executeQuery();
-        List<TrackItem> list = new ArrayList<TrackItem>();
+        List<TrackItem> list = new ArrayList<>();
         while (resultSet.next()) {
             int genre_id = resultSet.getInt("track_genre");
             int artist_id = resultSet.getInt("track_artist");

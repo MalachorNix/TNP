@@ -44,7 +44,6 @@
 </form>
 <% } else { %>
 <%! String name;
-    int id;
     int genre_id;
     int artist_id;
     String genre_name;

@@ -30,7 +30,7 @@
             <a href="../track/track.jsp">Показать треки</a><br><br><br>
         <td colspan="2"><p>
             <form name="frm" method="get" action="artist.jsp" style="vertical-align:top"
-                  onsubmit="return validateSearchForm()">
+                  onsubmit="validateSearchForm()">
                 <input type="text" name="name" value=""/>
                 <input type="submit" value="Поиск" name="search"/>
             </form>
@@ -62,11 +62,11 @@
                     ArtistItem artist = dao.readByName(artist_name);
                     if (artist == null) { %>
                 <script>
-                    genreNotFound();
+                    artistNotFound();
                 </script>
                 <% } else {
                     list.add(artist);
-                    }
+                }
                 }
                 %>
 
@@ -88,7 +88,7 @@
                     </td>
                 </tr>
                 <% }
-                daoFactory.closeConnection();
+                    daoFactory.closeConnection();
                 } catch (Exception e) {
                     e.printStackTrace();
 

@@ -1,6 +1,5 @@
 body{
-	background-image: url(../pictures/sun.jpg);
-	background-repeat:no-repeat;
+	background: url(../pictures/sun.jpg) no-repeat;
 	background-size:100%;
 }
 h1{

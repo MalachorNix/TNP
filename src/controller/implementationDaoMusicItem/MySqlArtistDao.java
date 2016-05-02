@@ -36,8 +36,7 @@ public class MySqlArtistDao implements ArtistDao {
         resultSet.next();
         int resultId = resultSet.getInt("artist_id");
         String resultName = resultSet.getString("artist_name");
-        ArtistItem artistItem = new ArtistItem(resultId, resultName);
-        return artistItem;
+        return new ArtistItem(resultId, resultName);
     }
 
     @Override
@@ -90,7 +89,7 @@ public class MySqlArtistDao implements ArtistDao {
         String sql = "SELECT * FROM library.artist;";
         PreparedStatement statement = connection.prepareStatement(sql);
         ResultSet resultSet = statement.executeQuery();
-        List<ArtistItem> list = new ArrayList<ArtistItem>();
+        List<ArtistItem> list = new ArrayList<>();
         while (resultSet.next()) {
             ArtistItem artistItem = new ArtistItem(resultSet.getInt("artist_id"), resultSet.getString("artist_name"));
             list.add(artistItem);
