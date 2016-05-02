@@ -2,7 +2,6 @@
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.sql.Connection" %>
-<%@ page import="controller.*" %>
 <%@ page import="model.ArtistItem" %>
 <%@ page import="model.GenreItem" %>
 <%@ page import="controller.interfaceDaoItem.ArtistDao" %>

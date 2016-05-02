@@ -1,14 +1,12 @@
-<%@ page import="model.TrackItem" %>
 <%@ page import="java.sql.Connection" %>
-<%@ page import="controller.*" %>
-<%@ page import="model.ArtistItem" %>
-<%@ page import="model.GenreItem" %>
 <%@ page import="java.sql.SQLException" %>
 <%@ page import="controller.interfaceDaoItem.ArtistDao" %>
 <%@ page import="controller.interfaceDaoFactory.DaoFactory" %>
 <%@ page import="controller.interfaceDaoItem.GenreDao" %>
 <%@ page import="controller.interfaceDaoItem.TrackDao" %>
 <%@ page import="controller.impelementationDaoFactory.MySqlDaoFactory" %>
+<%@ page import="model.GenreItem" %>
+<%@ page import="model.ArtistItem" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -68,19 +66,26 @@
     artist_name = request.getParameter("artist_name");
 
     if (name.length() != 0 && genre_name.length() != 0 && artist_name.length() != 0) {
-        genre_id = genreDao.readByName(genre_name).getId();
-        artist_id = artistDao.readByName(artist_name).getId();
-        try {
+        GenreItem genre = genreDao.readByName(genre_name);
+        ArtistItem artist = artistDao.readByName(artist_name);%>
+<%
+    try {
+        if (genre != null && artist != null) {
+            genre_id = genre.getId();
+            artist_id = artist.getId();
             trackDao.create(name, genre_id, artist_id);
-            daoFactory.closeConnection();
-        } catch (SQLException e) {
-            %>
+        }
+    } catch (SQLException e) {
+%>
 <script>
     alert('Нет такого жанра или исполнителя');
 </script>
 <%
+        } finally {
+            daoFactory.closeConnection();
         }
-
+        %>
+<%
     }
     if (true) {
 %>

@@ -18,6 +18,10 @@ function artistNotFound() {
     alert("Артист не найден.");
 }
 
+function genreOrArtistNotFound() {
+    alert("Жанр или артист не найден.");
+}
+
 function validateEmpty() {
     if (document.getElementById('inputField').value.replace(/\s+/g, '').length) {
     } else {

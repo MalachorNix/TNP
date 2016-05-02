@@ -40,13 +40,11 @@
         GenreDao dao = daoFactory.getGenreDao(con);
         try {
             dao.create(name);
-            daoFactory.closeConnection();
         } catch (SQLException e) {
             %>
-<script>
-    alert('Данный жанр уже существует.');
-</script>
 <%
+        } finally {
+            daoFactory.closeConnection();
         }
     }
     if (true) {
